@@ -13,10 +13,12 @@ defineProps({
   <div v-if="blogProp" class="col-8">
     <div class="d-flex flex-column justify-content-between h-100">
       <div>
-        <div class="d-flex gap-3 align-items-end mb-3">
-          <img :src="blogProp.creator.picture" :alt="blogProp.creator.name" class="user-image">
-          <p class="fs-5">{{ blogProp.creator.name }}</p>
-        </div>
+        <router-link :to="{ name: 'User', params: { userId: blogProp.creatorId } }">
+          <div class="d-flex gap-3 align-items-end mb-3">
+            <img :src="blogProp.creator.picture" :alt="blogProp.creator.name" class="user-image">
+            <p class="fs-5">{{ blogProp.creator.name }}</p>
+          </div>
+        </router-link>
         <h4>{{ blogProp.title }}</h4>
         <p>{{ blogProp.body }}</p>
       </div>
